@@ -59,9 +59,9 @@ function loadAccount(email)
             <thead>\
                 <tr id="tableheader">\
                     <th scope="col">#</th>\
-                    <th scope="col">Date</th>\
                     <th scope="col">From</th>\
                     <th scope="col">Subject</th>\
+                    <th scope="col">Date / Time</th>\
                 </tr>\
             </thead>\
             <tbody id="emailtable">\
@@ -115,15 +115,15 @@ function updateEmailTable()
 
                     //var date = new Date(parseInt(dateofemail))
                     //var datestring = date.getDate()+"."+date.getMonth()+"."+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes();
-					var datestring = moment.unix(parseInt(dateofemail/1000)).format(data.dateformat); // Use moment.js formatting
+					var datestring = moment.unix(parseInt(dateofemail/1000)).format('MMM D, YY HH:mm:ss z'); // Use moment.js formatting
                     var ed = data.emails[em]
                     $("#emailtable").append('\
                         <tr class="anemail" onClick="loadMail(\''+email+'\','+dateofemail+');">\
-                            <th scope="row">'+(index++)+'</th>\
+                        <th scope="row">'+(index++)+'</th>\
+                            <td style="width:20%">'+ed.from.toHtmlEntities()+'</td>\
+                            <td style="width:60%">'+ed.subject.toHtmlEntities()+'</td>\
                             <td >'+datestring+'</td>\
                             '+(admin===true?'<td>'+email+'</td>':'')+'\
-                            <td>'+ed.from.toHtmlEntities()+'</td>\
-                            <td>'+ed.subject.toHtmlEntities()+'</td>\
                         </tr>');
                 }
             else if(lastid==0 && $("#nomailyet").length == 0){
@@ -150,9 +150,29 @@ function generateAccount()
         alert("No domains configured in settings.ini")
     else
     {
-        var email = makeName()+'@'+domains[Math.floor(Math.random()*domains.length)];
+        var randomName = faker.helpers.slugify(
+            faker.name.firstName() + 
+            '.' +
+            faker.name.lastName() +
+            (Math.floor(Math.random() * 100) + 1)
+        ).toLowerCase();
+        var email = randomName+'@'+domains[Math.floor(Math.random()*domains.length)];
+        copyToClipboard(email);
         loadAccount(email)
     }
+}
+
+function copyToClipboard(text) {
+    var dummy = document.createElement("textarea");
+    // to avoid breaking orgain page when copying more words
+    // cant copy when adding below this code
+    // dummy.style.display = 'none'
+    document.body.appendChild(dummy);
+    //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
 }
 
 function changeHash(val)

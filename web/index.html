@@ -8,40 +8,42 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/opentrashmail.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Open Trashmail</title>
+    <title>Disposble email</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="?"><img src="imgs/logo_300_light.png" width="50px" /> Open Trashmail </a>
+        <a class="navbar-brand" href="?">Diposable</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navi" aria-controls="navi" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navi">
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" id="email" type="email" placeholder="email address" aria-label="email address">
-            <button onClick="accessAccount()" class="btn btn-secondary my-2 my-sm-0"><i class="fas fa-arrow-left"></i><i class="fas fa-envelope"></i> Access account</button> &nbsp;
-            <button onClick="generateAccount()" class="btn btn-secondary my-2 my-sm-0"><i class="fas fa-random"></i> Generate random</button>
+            <!--<input class="form-control mr-sm-2" id="email" type="email" placeholder="email address" aria-label="email address">
+            <button onClick="accessAccount()" class="btn btn-secondary my-2 my-sm-0"><i class="fas fa-arrow-left"></i><i class="fas fa-envelope"></i> Access account</button> &nbsp;-->
+            <button onClick="generateAccount()" class="btn btn-secondary my-2 my-sm-0"><i class="fas fa-random"></i> Generate a random email address</button>
           </form>
         </div>
       </nav>
 
     <main role="main" class="container" id="main">
       <div class="starter-template">
-        <h1>Welcome to Open Trashmail</h1>
-        <p class="lead">Access an email address or generate a new one.</p>
+        <h1>An0nym0us Disposble Emails</h1>
+        <button onClick="generateAccount()" class="btn btn-secondary my-2 my-sm-0"><i class="fas fa-random"></i>Generate a new email address</button></p>
       </div>
 
     </main><!-- /.container -->
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/namegenerator.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js" integrity="sha512-/seDHxVfh1NvFUscAj8GsHQVZJvr2jjAoYsNL7As2FCaFHUHYIarl3sRCvVlFgyouVNiRgHIebyLKjpgd1SLDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/locales/en/faker.en.min.js" integrity="sha512-mxra1TXulw8G25XhwqZ8XGz69etSxlaa4HCcM+0ZVDbIfMakqnxliiSO9hnsq6hrXTFL9jwNBAUIyh//D2qCPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/opentrashmail.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/moment-with-locales.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
   </body>
 </html>

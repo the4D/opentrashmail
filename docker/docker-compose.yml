@@ -1,0 +1,13 @@
+version: '3'
+services:
+  php:
+    build: .
+    container_name: opentrashmail
+    ports: 
+        - "7777:80"
+        - "25:25"
+    restart: always
+    volumes:
+        - "../:/var/www/opentrashmail"
+        - "../log:/var/log/nginx/opentrashmail"
+    tty: true
